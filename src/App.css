@@ -1,0 +1,16 @@
+#header{
+  height:200px;
+  
+}
+#logo{
+  align-items: center;
+  margin: auto;
+  padding: auto;
+  height:150px;
+  align-content: center;
+}
+.App-logo{
+ margin-left:600px;
+ height:80px;
+ width:80px;
+}
