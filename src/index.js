@@ -5,12 +5,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import { BrowserRouter,Routes,Route, Outlet } from 'react-router-dom';
 import Header from  './components/Header';
 import About from './components/About';
 import Home from './components/Home';
 import Contact from './components/Contact';
 import Registration from './components/Registration';
+import Addproduct from './components/Addproduct';
+import PrivateRoute from './components/PrivateComponet';
+import Login from './components/Login';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +23,10 @@ root.render(
  <Route path="/" element={<Home />} />
       <Route path="/about" element={<About/>} />
       <Route path="/register" element={<Registration/>}/>
+      <Route path="/signin" element={<Login/>}/>
+     <Route element={<PrivateRoute/>}>
+      <Route path="/add-product" element={<Addproduct/>}/>
+      </Route>
       <Route path="/contact" element={<Contact/>} />
  </Routes>
  </BrowserRouter>

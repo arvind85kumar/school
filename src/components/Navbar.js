@@ -1,6 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link,useNavigate} from 'react-router-dom';
 import logo from '.././logo.png';
+
 function Navbaropt() {
+ const navigate = useNavigate();
+  const logout= ()=>{
+    localStorage.clear();
+    navigate('/register');
+  }
+
+  const auth = localStorage.getItem('useInfo') ;
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <Link className="navbar-brand" to="/"><img alt="logo" src={logo} /></Link>
@@ -14,10 +22,9 @@ function Navbaropt() {
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/about">About Us</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/register">Registration</Link>
-          </li>
+          </li>         
+            {auth ? <Link className="nav-link" onClick={logout}>Logout</Link> :   <Link className="nav-link" to="/register">Signup</Link>}
+        
           <li className="nav-item">
             <Link className="nav-link" to="/contact">Contact</Link>
           </li>
